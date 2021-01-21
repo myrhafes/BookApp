@@ -1,0 +1,41 @@
+ion-title{
+    font-family: 'Reem Kufi', sans-serif;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.book {
+  display: inline-block;
+  width: 130px;
+  height: 250px;
+  box-shadow: 0 0 20px #aaa;
+  margin-top : 12px;
+  padding: 10px 10px 0 10px;
+  vertical-align: top;
+  transition: height 1s;
+}
+
+.cover {
+  border: 2px solid gray;
+  height: 80%;
+  overflow: hidden;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+}
+
+.book p {
+  direction: rtl;
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.book .author {
+  direction: rtl;
+  font-size: 10px;
+}

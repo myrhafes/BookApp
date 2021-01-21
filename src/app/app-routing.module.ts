@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'items',
     loadChildren: () => import('./items/items.module').then( m => m.ItemsPageModule)
+  },  {
+    path: 'islamic',
+    loadChildren: () => import('./categories/islamic/islamic.module').then( m => m.IslamicPageModule)
   },
+
 ];
 
 @NgModule({
