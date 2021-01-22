@@ -1,9 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Rakkas&display=swap');
+
 ion-title{
     font-family: 'Reem Kufi', sans-serif;
 }
 
-.item{
-    width: 100% !important;
-    height: auto !important;
+ion-grid{
+    direction: rtl;
+}
+
+#quote{
+    direction: rtl;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Aref Ruqaa', serif;}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.customBtn{
+    width: 130px;
+    height: 50px;
+    font-family: 'Tajawal', sans-serif;
 }
 

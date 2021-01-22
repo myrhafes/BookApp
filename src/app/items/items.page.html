@@ -19,17 +19,76 @@
 </ion-header>
 
 <ion-content>
-
-  <div class="ion-margin">
-    <img class="item" src="./assets/islam.jpg"> 
-  </div>  
-
-  <div class="ion-margin">
-    <img class="item" src="./assets/islam.jpg"> 
+  <div class="ion-margin container">
+    <p id="quote">علمتني الكتب ما لم يعلمني سواها</p> 
   </div> 
+  <ion-grid>
+    <ion-row>
 
-  <div class="ion-margin">
-    <img class="item" src="./assets/islam.jpg"> 
-  </div> 
+      <ion-col class="container">
+        <a [routerLink]="['/islamic']"><ion-button class="customBtn" color="tertiary" >كتب إسلامية</ion-button></a>
+      </ion-col>
 
+      <ion-col class="container">
+        <a [routerLink]="['/think-and-culture']"><ion-button class="customBtn" color="tertiary">فكر وثقافة</ion-button></a>
+      </ion-col>
+
+      <ion-col class="container">
+        <a [routerLink]="['/human-developement']"><ion-button class="customBtn" color="tertiary">تنمية بشرية</ion-button></a>
+      </ion-col>
+
+      <ion-col class="container">
+        <a [routerLink]="['/psychology-and-sociology']"><ion-button class="customBtn" color="tertiary">علم نفس واجتماع</ion-button></a>
+      </ion-col>
+      <ion-col class="container">
+        <a [routerLink]="['/philosophy']"><ion-button class="customBtn" color="tertiary">فلسفة</ion-button></a>
+      </ion-col>
+
+      <ion-col class="container">
+        <a [routerLink]="['/arabic-literature']"><ion-button class="customBtn" color="tertiary">الأدب العربي</ion-button></a>
+      </ion-col>
+      <ion-col class="container">
+        <a [routerLink]="['/english-literature']"><ion-button class="customBtn" color="tertiary">الأدب الإنجليزي</ion-button></a>
+      </ion-col>
+
+      <ion-col class="container">
+        <a [routerLink]="['/american-literature']"><ion-button class="customBtn" color="tertiary">الأدب الأمريكي</ion-button></a>
+      </ion-col>
+      <ion-col class="container">
+        <a [routerLink]="['/german-literature']"><ion-button class="customBtn" color="tertiary">الأدب الألمانى</ion-button></a>
+      </ion-col>
+
+      <ion-col class="container">
+        <a [routerLink]="['/french-literature']"><ion-button class="customBtn" color="tertiary">الأدب الفرنسي</ion-button></a>
+      </ion-col>
+      <ion-col class="container">
+        <a [routerLink]="['/history-book']"><ion-button class="customBtn" color="tertiary">كتب تاريخ</ion-button></a>
+      </ion-col>
+
+      <ion-col class="container">
+        <a [routerLink]="['/medical-book']"><ion-button class="customBtn" color="tertiary">كتب طب</ion-button></a>
+      </ion-col>
+
+      <ion-col class="container">
+        <a [routerLink]="['/international-novels']"><ion-button class="customBtn" color="tertiary">روايات عالمية</ion-button></a>
+      </ion-col>
+      <ion-col class="container">
+        <a [routerLink]="['/arabic-novels']"><ion-button class="customBtn" color="tertiary">روايات عربية</ion-button></a>
+      </ion-col>
+
+      <ion-col class="container">
+        <a [routerLink]="['/romantic-novels']"><ion-button class="customBtn" color="tertiary">روايات رومانسية</ion-button></a>
+      </ion-col>
+      <ion-col class="container">
+        <a [routerLink]="['/horror-novels']"><ion-button class="customBtn" color="tertiary">روايات رعب</ion-button></a>
+      </ion-col>
+
+      <ion-col class="container">
+        <a [routerLink]="['/pocket-novels']"><ion-button class="customBtn" color="tertiary">روايات جيب</ion-button></a>
+      </ion-col>
+      <ion-col class="container">
+        <a [routerLink]="['/children-stories']"><ion-button class="customBtn" color="tertiary">قصص أطفال</ion-button></a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
