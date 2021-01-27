@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
-
+  src = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
 }
