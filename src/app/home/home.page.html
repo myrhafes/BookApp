@@ -6,26 +6,52 @@
   </ion-toolbar>
 </ion-header>
 
-  <ion-content [fullscreen]="true">
-    <ion-fab bottom right>
-      <button ion-fab mini (click)="zoomIn()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    <button ion-fab mini (click)="zoomOut()">
-        <ion-icon name="remove"></ion-icon>
-      </button>
-    <button ion-fab mini (click)="resetZoom()">
-        <ion-icon name="refresh"></ion-icon>
-      </button>
-    </ion-fab>
-    <!--<ion-button color="primary" (click)="function()">Primary</ion-button>-->
-    <pdf-viewer [src]="pdfSrc" 
-                [page]="page"
-                [show-all]="false"
-                [render-text]="true"
-                style="display: block;"
-                [zoom]="pdfZoom" 
-                [fit-to-page]="true"    
-    ></pdf-viewer>
-  
+<ion-content [fullscreen]="true">
+  <pdf-viewer [src]="pdfSrc" 
+              [(page)]="page"
+              [show-all]="true"
+              [stick-to-page]="true"
+              [render-text]="true"
+              [zoom]="pdfZoom" 
+              [fit-to-page]="true"    
+  ></pdf-viewer>
+   
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-button color="primary" (click)="zoomOut()" size="small">
+            <ion-icon name="remove"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button color="primary" (click)="zoomIn()" size="small">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button color="primary" (click)="Save()" size="small">Save</ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button color="primary" (click)="pageBack()" size="small">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button color="primary" (click)="pageNext()" size="small">
+            <ion-icon name="arrow-forward" (click)="pageNext()"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    
 </ion-content>

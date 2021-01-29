@@ -1,8 +1,18 @@
 pdf-viewer {
-    display:inline-block;
-    max-width:100%;
-    transform: scale(1.0);
+    display: block;
+    height: 100vh;
 }
-ion-fab {
-    position:fixed;
+
+ion-grid{
+    position: fixed;
+    bottom: 0px;
+    width:100%;
+    display: flex;
+    justify-content: center;
 }
+
+ion-col{
+    padding-left: 1px;
+}
+
+
