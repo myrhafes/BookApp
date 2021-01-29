@@ -6,12 +6,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="pdf-container">
-    <pdf-viewer [src]="src"
-                [original-size]="false"
-                [show-all]="true"
+  <ion-content [fullscreen]="true">
+    <ion-fab bottom right>
+      <button ion-fab mini (click)="zoomIn()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    <button ion-fab mini (click)="zoomOut()">
+        <ion-icon name="remove"></ion-icon>
+      </button>
+    <button ion-fab mini (click)="resetZoom()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-fab>
+    <!--<ion-button color="primary" (click)="function()">Primary</ion-button>-->
+    <pdf-viewer [src]="pdfSrc" 
+                [page]="page"
+                [show-all]="false"
+                [render-text]="true"
                 style="display: block;"
+                [zoom]="pdfZoom" 
+                [fit-to-page]="true"    
     ></pdf-viewer>
-  </div> 
+  
 </ion-content>
