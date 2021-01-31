@@ -2,8 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { StorageService, Item  } from '../services/storage/storage.service';
 import { Platform, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
-
+import { LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pdf',
@@ -19,7 +18,7 @@ export class PdfPage  {
   itemExist : Item;
 
   constructor(private storageService: StorageService, private plt: Platform, private route: ActivatedRoute,
-     private router: Router, private loadingController: LoadingController ) {
+     private router: Router, private loadingController: LoadingController, private navCtrl: NavController) {
       this.loadItems();
       
       this.route.queryParams.subscribe(params => {
@@ -149,6 +148,10 @@ export class PdfPage  {
     await loading.present();
 
     const { role, data } = await loading.onDidDismiss();
+  }
+
+  goback() {
+    this.navCtrl.pop();
   }
 
 }

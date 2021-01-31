@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Book } from '../../model/Books';
 import { ApiService } from '../../services/api.service';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-islamic',
@@ -13,13 +15,16 @@ export class IslamicPage implements OnInit {
   public BookOutput;
   //Firestore
   Books : Book[];
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router, private statusBar: StatusBar,
+    private navCtrl: NavController) { }
 
   //Firestore : Get Data   
   ngOnInit(): void {
     this.apiService.getislamicBooks().subscribe(books => {
       this.Books = books;
     })
+
+    this.statusBar.backgroundColorByHexString('#4754e3');
   }
 
   Outputfct(item: Book){
@@ -33,4 +38,7 @@ export class IslamicPage implements OnInit {
     this.router.navigate(['pdf'], navigationExtras);
   }
 
+  goback() {
+    this.navCtrl.pop();
+  }
 }
