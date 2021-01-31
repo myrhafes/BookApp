@@ -1,9 +1,35 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>american-literature</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="menu" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>الأدب الأمريكي</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+    <ion-grid>
+  
+      <ion-row>
+  
+        <ion-col *ngFor="let item of Books">
+          <div class="container" (click)="Outputfct(item)" [routerLink]="['../pdf']">
+            <div class="book">
+              <div class="cover">
+                <img src="{{item.Image}}">
+              </div>
+              <div class="description">
+                <p class="title">{{item.Title}}<br>
+                  <span class="author">{{item.Author}}</span></p>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+  
+      </ion-row>
+    </ion-grid>  
 </ion-content>
+

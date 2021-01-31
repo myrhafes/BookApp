@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'items',
     pathMatch: 'full'
   },
   {
@@ -86,6 +86,10 @@ const routes: Routes = [
   {
     path: 'children-stories',
     loadChildren: () => import('./categories/children-stories/children-stories.module').then( m => m.ChildrenStoriesPageModule)
+  },
+  {
+    path: 'pdf',
+    loadChildren: () => import('./pdf/pdf.module').then( m => m.PdfPageModule)
   },
 
 ];

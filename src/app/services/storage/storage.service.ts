@@ -31,7 +31,7 @@ export class StorageService {
   getItems(){
     return this.storage.get(ITEMS_KEY);
   }
-
+  
   //Update
   updateItem(item: Item){
     return this.storage.get(ITEMS_KEY).then((items: Item[]) =>{
