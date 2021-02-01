@@ -3,13 +3,14 @@ import { StorageService, Item  } from '../services/storage/storage.service';
 import { Platform, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, NavController } from '@ionic/angular';
+import { AdmobService } from '../services/admob/admob.service';
 
 @Component({
   selector: 'app-pdf',
   templateUrl: './pdf.page.html',
   styleUrls: ['./pdf.page.scss'],
 })
-export class PdfPage  {
+export class PdfPage implements OnInit {
   
   BookInput: any;
   pdfSrc: any;
@@ -18,7 +19,8 @@ export class PdfPage  {
   itemExist : Item;
 
   constructor(private storageService: StorageService, private plt: Platform, private route: ActivatedRoute,
-     private router: Router, private loadingController: LoadingController, private navCtrl: NavController) {
+     private router: Router, private loadingController: LoadingController, private navCtrl: NavController, 
+     private admobService: AdmobService) {
       this.loadItems();
       
       this.route.queryParams.subscribe(params => {
@@ -44,6 +46,10 @@ export class PdfPage  {
         }
       })
     }
+
+  ngOnInit(): void {
+    this.admobService.ShowBanner();
+  }
 
   public pdfZoom:number = 1;
   public ZOOM_STEP:number = 0.25;

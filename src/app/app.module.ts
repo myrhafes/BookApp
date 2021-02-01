@@ -10,7 +10,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { MenuController } from '@ionic/angular';
-
+import { AdMobFree} from '@ionic-native/admob-free/ngx';
+import { AdmobService } from './services/admob/admob.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +32,8 @@ import { environment } from 'src/environments/environment';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     MenuController,
+    AdMobFree,
+    AdmobService
   ],
   bootstrap: [AppComponent]
 })
