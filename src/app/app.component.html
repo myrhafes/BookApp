@@ -1,21 +1,42 @@
 <ion-app>
   <ion-menu side="start" menuId="first" contentId="main">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Start Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
+    
       <ion-content>
-        <ion-list>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
+        <div class="menu-header-bg"></div>
+        <div class="header-content">
+          <img src="../assets/icon/favicon.png" alt="">
+          <ion-label>
+            <h2>APP NAME</h2>
+            <p>lorem ipsum</p>
+          </ion-label>
+        </div>
+        <div class="action-button">
+          <ion-button>
+            <ion-icon slot="start" name="add"></ion-icon>Add Branch
+          </ion-button>
+        </div>
+        <ion-list class="menu-items" lines="none">
+          <ion-item>
+            <ion-icon name="pie-chart-outline"></ion-icon>Dashboard
+          </ion-item>
+
+          <ion-item>
+            <ion-icon name="pie-chart-outline"></ion-icon>Dashboard
+          </ion-item>
+
+          <ion-item>
+            <ion-icon name="pie-chart-outline"></ion-icon>Dashboard
+          </ion-item>
+
+          <ion-item>
+            <ion-icon name="pie-chart-outline"></ion-icon>Dashboard
+          </ion-item>
+
+          <ion-item>
+            <ion-icon name="pie-chart-outline"></ion-icon>Dashboard
+          </ion-item>
         </ion-list>
       </ion-content>
-    </ion-content>
   </ion-menu>
   
 
