@@ -4,7 +4,7 @@ import { Platform, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, NavController } from '@ionic/angular';
 import { AdmobService } from '../services/admob/admob.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-pdf',
   templateUrl: './pdf.page.html',
@@ -112,7 +112,9 @@ export class PdfPage implements OnInit {
     }else{
       this.updateItem(this.itemExist);
     }
-    console.log(this.page);
+    Swal.fire(
+      'لقد تم حفظ الصفحة بنجاح'
+    )
   }
 
   loadItems(){
@@ -147,7 +149,7 @@ export class PdfPage implements OnInit {
 
   async presentLoading() {
     const loading = await this.loadingController.create({
-      cssClass: 'loading',
+      cssClass: 'cssClass',
       message: 'جار التحميل',
       duration: 3000
     });
