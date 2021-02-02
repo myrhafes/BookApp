@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { DarkmodeService } from './services/darkmode/darkmode.service';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
 
 const THEME_KEY= "app_theme";
 
@@ -22,7 +24,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private darkmodeService: DarkmodeService,
-    private storage: Storage
+    private storage: Storage,
+    private socialSharing: SocialSharing
   ) {
     this.initializeApp();
   }
@@ -39,6 +42,16 @@ export class AppComponent {
 
   darkModeToggle(){
     this.darkmodeService.darkModeTheme();
+  }
+
+  share(){
+    var options = {
+      message: 'share this', // not supported on some apps (Facebook, Instagram)
+      subject: 'the subject', // fi. for email
+      url: 'https://www.website.com/foo/#bar?a=b',
+    };
+
+    this.socialSharing.shareWithOptions(options);
   }
 
 }
