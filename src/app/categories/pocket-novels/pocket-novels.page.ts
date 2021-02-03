@@ -4,6 +4,7 @@ import { Book } from 'src/app/model/Books';
 import { ApiService } from 'src/app/services/api.service';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NavController } from '@ionic/angular';
+import { AdmobService } from 'src/app/services/admob/admob.service';
 
 @Component({
   selector: 'app-pocket-novels',
@@ -16,7 +17,7 @@ export class PocketNovelsPage implements OnInit {
   //Firestore
   Books : Book[];
   constructor(private apiService: ApiService, private router: Router, private statusBar: StatusBar,
-    private navCtrl: NavController) { }
+    private navCtrl: NavController, private admobeService: AdmobService) { }
 
   //Firestore : Get Data   
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class PocketNovelsPage implements OnInit {
   }
 
   Outputfct(item: Book){
+    this.admobeService.ShowInterstitial();
     this.BookOutput = item;
     console.log(this.BookOutput);
     let navigationExtras: NavigationExtras = {

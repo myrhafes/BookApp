@@ -1,3 +1,4 @@
+import { AdmobService } from './../../services/admob/admob.service';
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Book } from 'src/app/model/Books';
@@ -16,7 +17,7 @@ export class RomanticNovelsPage implements OnInit {
   //Firestore
   Books : Book[];
   constructor(private apiService: ApiService, private router: Router, private statusBar: StatusBar,
-    private navCtrl: NavController) { }
+    private navCtrl: NavController,private admobeService: AdmobService) { }
 
   //Firestore : Get Data   
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class RomanticNovelsPage implements OnInit {
   }
 
   Outputfct(item: Book){
+    this.admobeService.ShowInterstitial();
     this.BookOutput = item;
     console.log(this.BookOutput);
     let navigationExtras: NavigationExtras = {

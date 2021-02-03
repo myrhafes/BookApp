@@ -7,6 +7,7 @@ import { DarkmodeService } from './services/darkmode/darkmode.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { Router } from '@angular/router';
+import { AdmobService } from './services/admob/admob.service';
 
 const THEME_KEY= "app_theme";
 
@@ -28,21 +29,25 @@ export class AppComponent {
     private storage: Storage,
     private socialSharing: SocialSharing,
     private network: Network,
-    private router: Router
+    private router: Router,
+    private admobeService: AdmobService
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#4754e3');
       this.splashScreen.hide();
       this.storage.get(THEME_KEY).then(checked => {
         this.checked = checked;
       })
+
       this.network.onDisconnect().subscribe(() => {
         this.router.navigate(['/disconnect'])
       });
+
+      this.admobeService.ShowBanner();
     });
   }
 
@@ -52,9 +57,9 @@ export class AppComponent {
 
   share(){
     var options = {
-      message: 'share this', // not supported on some apps (Facebook, Instagram)
-      subject: 'the subject', // fi. for email
-      url: 'https://www.website.com/foo/#bar?a=b',
+      message: 'Best books app', // not supported on some apps (Facebook, Instagram)
+      subject: 'books world', // fi. for email
+      url: 'https://play.google.com/store/apps/details?id=com.sniperdev.booksworld',
     };
 
     this.socialSharing.shareWithOptions(options);

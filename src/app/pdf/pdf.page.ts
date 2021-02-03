@@ -14,14 +14,13 @@ export class PdfPage implements OnInit {
   
   BookInput: any;
   pdfSrc: any;
-  page = "1" ;
+  page ="1";
   id:string;
   itemExist : Item;
 
   constructor(private storageService: StorageService, private plt: Platform, private route: ActivatedRoute,
-     private router: Router, private loadingController: LoadingController, private navCtrl: NavController, 
-     private admobService: AdmobService) {
-      this.loadItems();
+     private router: Router, private loadingController: LoadingController, private navCtrl: NavController) {
+      //this.loadItems();
       
       this.route.queryParams.subscribe(params => {
         if(params && params.data){
@@ -30,25 +29,25 @@ export class PdfPage implements OnInit {
 
           this.pdfSrc = this.BookInput.pdf;
 
-          this.id = this.BookInput.id;
+          this.presentLoading();
+          //this.id = this.BookInput.id;
 
-          this.itemExist = {
+          /*this.itemExist = {
             id: this.id,
             page: this.page
-          } 
+          } */
 
-          this.storageService.getItems().then(val =>{
+          /*this.storageService.getItems().then(val =>{
               this.items = val;
               this.loadPage();
               this.page = this.itemExist.page;
           })
-          this.presentLoading();
+          */
         }
       })
     }
 
   ngOnInit(): void {
-    this.admobService.ShowBanner();
   }
 
   public pdfZoom:number = 1;
@@ -65,7 +64,7 @@ export class PdfPage implements OnInit {
 		if (this.pdfZoom > this.DEFAULT_ZOOM) {
       this.pdfZoom -= this.ZOOM_STEP;
     }
-    console.log(this.items)
+
   }
   
   next: number;
@@ -73,7 +72,6 @@ export class PdfPage implements OnInit {
     this.next = parseInt(this.page);
     this.next++;
     this.page = this.next.toString();
-    console.log(this.page);
   }
   
   back: number;
@@ -81,25 +79,38 @@ export class PdfPage implements OnInit {
     this.back = parseInt(this.page);
     this.back--;
     this.page = this.back.toString();
-    console.log(this.page);
   }
 
+  goback() {
+    this.navCtrl.pop();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'cssClass',
+      message: 'جار التحميل',
+      duration: 3000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+  }
 
   //Sqlite
-  items: Item[] = []; 
+  /*items: Item[] = []; 
   ArrayIds = new Array();
   check :Boolean ;
+
   obj;
+
   loadPage(){
     this.loadIds();
     this.check = this.ArrayIds.includes(this.itemExist.id);
     if(this.check){
       this.obj = this.items.find(o => o.id === this.itemExist.id);
       this.itemExist.page = this.obj.page;
-      console.log(this.itemExist.page);
     }else{
       this.page = "1";
-      console.log("false");
     }
   }
 
@@ -112,6 +123,7 @@ export class PdfPage implements OnInit {
     }else{
       this.updateItem(this.itemExist);
     }
+    this.loadIds();
     Swal.fire(
       'لقد تم حفظ الصفحة بنجاح'
     )
@@ -146,20 +158,7 @@ export class PdfPage implements OnInit {
       this.loadItems();
     });
   }
-
-  async presentLoading() {
-    const loading = await this.loadingController.create({
-      cssClass: 'cssClass',
-      message: 'جار التحميل',
-      duration: 3000
-    });
-    await loading.present();
-
-    const { role, data } = await loading.onDidDismiss();
-  }
-
-  goback() {
-    this.navCtrl.pop();
-  }
+  */
+  
 
 }

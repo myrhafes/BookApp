@@ -12,7 +12,6 @@ export class ItemsPage implements OnInit {
 
   constructor(private statusBar: StatusBar, private menuController: MenuController, 
     private admobService: AdmobService, private platform: Platform) {
-      this.backbuttonSubscribeMethod();
      }
 
   ngOnInit() {
@@ -24,14 +23,8 @@ export class ItemsPage implements OnInit {
     this.admobService.ShowInterstitial();
   }
 
-  backbuttonSubscribeMethod() {
-    let a = 0;
-    this.platform.backButton.subscribe(() => {
-        a++;
-        if (a == 3) { // logic for double tap
-          navigator['app'].exitApp();
-        }
-    });
+  ads(){
+    this.admobService.ShowInterstitial();
   }
 
 }
