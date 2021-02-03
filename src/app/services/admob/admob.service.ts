@@ -12,14 +12,14 @@ export class AdmobService {
   isTesting: true, // KEEP DURING CODING, REMOVE AT PROD.
   autoShow: true,
   
-  id: "ca-app-pub-3940256099942544/6300978111"
+  id: "ca-app-pub-1615011014624383/4791439286"
   };
 
   //INTERSTITIAL CONFIG
   interstitialConfig: AdMobFreeInterstitialConfig = {
   isTesting: true, // KEEP DURING CODING, REMOVE AT PROD.
   autoShow: false,
-  id: "ca-app-pub-3940256099942544/1033173712"
+  id: "ca-app-pub-1615011014624383/8155969224"
   };
 
   constructor(

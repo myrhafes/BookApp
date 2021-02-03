@@ -3,10 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: 'items',
     loadChildren: () => import('./items/items.module').then( m => m.ItemsPageModule)
   },
@@ -90,7 +86,8 @@ const routes: Routes = [
   {
     path: 'pdf',
     loadChildren: () => import('./pdf/pdf.module').then( m => m.PdfPageModule)
-  },  {
+  },
+  {
     path: 'disconnect',
     loadChildren: () => import('./disconnect/disconnect.module').then( m => m.DisconnectPageModule)
   },
