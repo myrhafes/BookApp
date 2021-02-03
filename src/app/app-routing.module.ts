@@ -90,7 +90,11 @@ const routes: Routes = [
   {
     path: 'pdf',
     loadChildren: () => import('./pdf/pdf.module').then( m => m.PdfPageModule)
+  },  {
+    path: 'disconnect',
+    loadChildren: () => import('./disconnect/disconnect.module').then( m => m.DisconnectPageModule)
   },
+
 
 ];
 

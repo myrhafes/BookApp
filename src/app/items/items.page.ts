@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { MenuController } from '@ionic/angular';
+import { MenuController, Platform } from '@ionic/angular';
 import { AdmobService } from '../services/admob/admob.service';
 
 @Component({
@@ -10,7 +10,10 @@ import { AdmobService } from '../services/admob/admob.service';
 })
 export class ItemsPage implements OnInit {
 
-  constructor(private statusBar: StatusBar, private menuController: MenuController, private admobService: AdmobService) { }
+  constructor(private statusBar: StatusBar, private menuController: MenuController, 
+    private admobService: AdmobService, private platform: Platform) {
+      this.backbuttonSubscribeMethod();
+     }
 
   ngOnInit() {
     this.statusBar.backgroundColorByHexString('#4754e3');
@@ -20,4 +23,15 @@ export class ItemsPage implements OnInit {
     this.menuController.open();
     this.admobService.ShowInterstitial();
   }
+
+  backbuttonSubscribeMethod() {
+    let a = 0;
+    this.platform.backButton.subscribe(() => {
+        a++;
+        if (a == 3) { // logic for double tap
+          navigator['app'].exitApp();
+        }
+    });
+  }
+
 }

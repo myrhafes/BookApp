@@ -5,7 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { DarkmodeService } from './services/darkmode/darkmode.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-
+import { Network } from '@ionic-native/network/ngx';
+import { Router } from '@angular/router';
 
 const THEME_KEY= "app_theme";
 
@@ -25,7 +26,9 @@ export class AppComponent {
     private statusBar: StatusBar,
     private darkmodeService: DarkmodeService,
     private storage: Storage,
-    private socialSharing: SocialSharing
+    private socialSharing: SocialSharing,
+    private network: Network,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -37,6 +40,9 @@ export class AppComponent {
       this.storage.get(THEME_KEY).then(checked => {
         this.checked = checked;
       })
+      this.network.onDisconnect().subscribe(() => {
+        this.router.navigate(['/disconnect'])
+      });
     });
   }
 
@@ -54,4 +60,5 @@ export class AppComponent {
     this.socialSharing.shareWithOptions(options);
   }
 
+  
 }
