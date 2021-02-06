@@ -11,25 +11,25 @@
 
 <ion-content>
 
-    <ion-grid>
-  
-      <ion-row>
-  
-        <ion-col *ngFor="let item of Books">
-          <div class="container" (click)="Outputfct(item)" [routerLink]="['../pdf']">
-            <div class="book">
-              <div class="cover">
-                <img src="{{item.Image}}">
-              </div>
-              <div class="description">
-                <p class="title">{{item.Title}}<br>
-                  <span class="author">{{item.Author}}</span></p>
-              </div>
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col *ngFor="let item of Books">
+        <div class="container" (click)="Outputfct(item)" [routerLink]="['../pdf']">
+          <div class="book">
+            <div class="cover">
+              <img src="{{item.Image}}">
+            </div>
+            <div class="description">
+              <p class="title">{{item.Title}}<br>
+                <span class="author">{{item.Author}}</span></p>
             </div>
           </div>
-        </ion-col>
-  
-      </ion-row>
-    </ion-grid>  
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>  
 </ion-content>
 
