@@ -1,0 +1,52 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="main">
+    
+      <ion-content>
+        <div class="menu-header-bg"></div>
+        <div class="header-content">
+          <img src="../assets/icon.png" alt="">
+          <ion-label>
+            <h2>عالم الكتب</h2>
+            <p>المكتبة الالكترونية للكتب المجانية</p>
+          </ion-label>
+        </div>
+        <div class="direction">
+          <div class="action-button">
+            <ion-button>
+              <ion-icon slot="start" name="add"></ion-icon><p>أضف كتابك المفضل</p>
+            </ion-button>
+          </div>
+
+          <ion-list class="menu-items" lines="none">
+
+            <ion-item button (click)="share()">
+              <ion-icon name="share-outline"></ion-icon><p>مشاركة التطبيق</p>
+            </ion-item>
+
+            <ion-item href="https://play.google.com/store/apps/details?id=com.sniperdev.booksworld">
+              <ion-icon name="star-outline"></ion-icon><p>تقييم التطبيق</p>
+            </ion-item>
+
+            <ion-item href="https://play.google.com/store/apps/dev?id=8289044091867358895">
+              <ion-icon name="logo-google-playstore"></ion-icon><p>تطبيقات أخرى</p>
+            </ion-item>
+
+            <ion-item button>
+              <ion-icon name="cog-outline"></ion-icon><p>سياسة الخصوصية</p>
+            </ion-item>
+
+            <ion-item button>
+              <ion-icon name="person-outline"></ion-icon><p>التواصل مع مطور التطبيق</p>
+            </ion-item>
+
+            <ion-item>
+              <ion-toggle color="dark" (click)="darkModeToggle()" [checked]="checked"></ion-toggle><p>الوضع المظلم</p>
+            </ion-item>
+          </ion-list>
+        </div>  
+      </ion-content>
+  </ion-menu>
+  
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

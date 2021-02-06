@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600&display=swap');
+
+pdf-viewer {
+    display: block;
+    height: 100vh;
+}
+
+ion-grid{
+    position: fixed;
+    bottom: 0px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+ion-col{
+    padding-left: 1px;
+}
+
+ion-button{
+    font-family: 'Reem Kufi', sans-serif;
+}
